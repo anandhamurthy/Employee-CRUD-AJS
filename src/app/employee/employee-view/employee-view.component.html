@@ -1,0 +1,70 @@
+<section>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand mx-2" href="#">Employee CRUD APP</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarText"
+      aria-controls="navbarText"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <div class="d-flex flex-wrap justify-content-end" style="width: 100%">
+        <button (click)="openCreate()" class="btn btn-primary btn-sm mx-2">
+          Add Employee
+        </button>
+      </div>
+    </div>
+  </nav>
+</section>
+<div class="container">
+  <div class="py-4">
+    <table class="table border shadow">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Username</th>
+          <th scope="col">Age</th>
+          <th scope="col">Phone Number</th>
+          <th scope="col">Email</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let emp of emp_db_list; index as i">
+          <th scope="row">{{ emp.id }}</th>
+          <td>{{ emp.name }}</td>
+          <td>{{ emp.username }}</td>
+          <td>{{ emp.age }}</td>
+          <td>{{ emp.phonenumber }}</td>
+          <td>{{ emp.email }}</td>
+          <td>
+            <button
+              (click)="openView(emp.id)"
+              class="btn btn-primary btn-sm mx-2"
+            >
+              View
+            </button>
+            <button
+              (click)="openUpdate(emp.id)"
+              class="btn btn-primary btn-sm mx-2"
+            >
+              Edit
+            </button>
+            <button
+              (click)="performDelete(emp.id)"
+              class="btn btn-primary btn-sm mx-2"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
